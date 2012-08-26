@@ -14,11 +14,11 @@ For example, to list all projects one need only the following:
 
 Javasana asana = new Javasana(yourKeyAsAString);
 
-try {
-    JSONObject projects = asana.listProjects();  
-    // returns a JSON representation of all objects (i.e. {"data":[{"id":654321979546213,"name":"Project number one"},{"id":1234567989465,"name":"Project number two"}]}
-} catch (JSONException e) {
-    // handle your exception
-}
+try {  
+&nbsp;&nbsp;&nbsp;&nbsp;JSONObject projects = asana.getProjects();  
+&nbsp;&nbsp;&nbsp;&nbsp;// returns a JSON representation of all objects (i.e. {"data":[{"id":654321979546213,"name":"Project number one"},{"id":1234567989465,"name":"Project number two"}]}  
+} catch (JSONException e) {  
+&nbsp;&nbsp;&nbsp;&nbsp;    // handle your exception  
+}  
 
 The error handling may occur within the method in the future. For now it is outside it.
