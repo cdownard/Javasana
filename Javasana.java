@@ -50,9 +50,11 @@ public class Javasana {
 		// update the workspaces field
 		try {
 			JSONArray data = json.getJSONArray("data");
-						
+			
+			workspaces.clear();
 			for (int i = 0; i < data.length(); i++) {
 				String d = data.get(i).toString();
+				
 				workspaces.add(new JSONObject(d));
 			}
 			
@@ -76,12 +78,11 @@ public class Javasana {
 	public JSONObject getProjects() {		
 		String url = apiUrl + "/projects";	
 		String result = getData(url);
-		//System.out.println("Asana returned the following: " + result);
 		
 		JSONObject json = convertToJSON(result);
 		try {
 			JSONArray data = json.getJSONArray("data");
-						
+			projects.clear();		
 			for (int i = 0; i < data.length(); i++) {
 				String d = data.get(i).toString();
 				projects.add(new JSONObject(d));
