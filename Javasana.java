@@ -79,6 +79,17 @@ public class Javasana {
 		//System.out.println("Asana returned the following: " + result);
 		
 		JSONObject json = convertToJSON(result);
+		try {
+			JSONArray data = json.getJSONArray("data");
+						
+			for (int i = 0; i < data.length(); i++) {
+				String d = data.get(i).toString();
+				projects.add(new JSONObject(d));
+			}
+			
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
 		
 		return json;
 	}
