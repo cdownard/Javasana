@@ -40,6 +40,14 @@ public class Javasana {
 		projects = new ArrayList<JSONObject>();
 	}
 
+	// Get a specific workspace or project's id
+	public String getProjectId(String projectName) {
+		String projectId = null;
+		
+		
+		return projectId;
+	}
+	
 	// All methods related to Workspaces
 	public JSONObject getWorkspaces() {
 		String url = apiUrl + "/workspaces";
@@ -64,7 +72,6 @@ public class Javasana {
 		
 		return json;
 	}
-	
 	public JSONObject getWorkspaceRecord(String workspaceId) {
 		String url = apiUrl + "/workspaces/" + workspaceId;
 		String result = getData(url);
@@ -94,7 +101,6 @@ public class Javasana {
 		
 		return json;
 	}
-	
 	public JSONObject getProjectTasks(String projectId) {
 		String url = apiUrl + "/projects/" + projectId + "/tasks";
 		String result = getData(url);
@@ -103,7 +109,6 @@ public class Javasana {
 		
 		return json;
 	}
-	
 	public JSONObject getProjectRecord(String projectId) {
 		String url = apiUrl + "/projects/" + projectId;
 		String result = getData(url);
@@ -112,15 +117,49 @@ public class Javasana {
 		
 		return json;
 	}
-	
 	public JSONObject createProject() {
 		
 		JSONObject json = null;
 		
 		return json;
 	}
+	
 	// All methods related to Users
-			
+	public JSONObject getUsers() {
+		String url = apiUrl + "/users";
+		String result = getData(url);
+		
+		JSONObject json = convertToJSON(result);
+		
+		return json;
+	}
+	public JSONObject getUserRecord(String userId) {
+		String url = apiUrl + "/users/" + userId;
+		String result = getData(url);
+		
+		JSONObject json = convertToJSON(result);
+		
+		return json;
+	}
+	
+	// All methods related to stories
+	public JSONObject getTaskStories(String taskId) {
+		String url = apiUrl + "/tasks/" + taskId;
+		String result = getData(url);
+		
+		JSONObject json = convertToJSON(result);
+		
+		return json;
+	}
+	public JSONObject getStory(String storyId) {
+		String url = apiUrl + "/stories/" + storyId;
+		String result = getData(url);
+		
+		JSONObject json = convertToJSON(result);
+		
+		return json;
+	}
+	
 	// Utility Methods
 	private String getData(String RESTurl) {
 		String data = null;
@@ -158,14 +197,12 @@ public class Javasana {
 		
 		return data;
 	}
-
 	private String basicAuth(String key) {
 		key = key + ":";
 		byte[] byteKey = key.getBytes();
 		String auth = DatatypeConverter.printBase64Binary(byteKey);
 		return auth;
 	}
-	
 	private String convertStreamToString(InputStream inputStream) {
 
 		try { 
@@ -174,7 +211,6 @@ public class Javasana {
 			return "";
 		}
 	}
-	
 	private JSONObject convertToJSON(String result) {
 		JSONObject json;
 		try {
